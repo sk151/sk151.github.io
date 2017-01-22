@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+	
+	// Creating a regular and an associative array:
+	var my_array = ["1","2","3","banana"];
+	var my_associative_array = new Array();
+	my_associative_array["one"] = "Element 1";
+	my_associative_array["two"] = "Element 2";
+	my_associative_array["three"] = "Element 3";
+	
+	// A function that takes two arrays as parameters and prints them in different ways:	
+	function printArrays(array1, array2) {
+	document.getElementById("output1").innerHTML = "Array:";	
+	document.getElementById("output2").innerHTML = my_array;	
+	document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
+	
+	// Conditional statement that prints an element if it exists:	
+	if (my_associative_array["two"]) {
+		document.getElementById("output4").innerHTML = my_associative_array["two"];	
+		}
+		else {
+			document.getElementById("output4").innerHTML = "No element under 'two'";
+		}
+		
+	// Printing elements of the second array in a loop:		
+	document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
+		for (i in my_associative_array) {
+			document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
+		};		
+	}
+	</script>
+</head>
+<body>
+	<h1>Topic 1: Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
+	<div>
+		<p>*Work in progress*</p>
+		<p>This is an example of using associative and regular arrays, loops, functions and their parameters, conditional statements and loops.</p>
+		<p>See page source for commented code.</p>
+		<input type="button" value="Print the arrays" onclick="printArrays(my_array, my_associative_array)"/>
+		<p id="output1"></p>
+		<p id="output2"></p>
+		<p id="output3"></p>
+		<p id="output4"></p>
+		<p id="output5"></p>
+		<p id="output6"></p>
+	</div>
+</body>
+</html>
