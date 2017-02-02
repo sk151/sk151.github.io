@@ -11,8 +11,8 @@
 		<p>Video tag with built-in controls:</p>
 		<video id=video1 
 			width="640" height="480" 
-			poster="poster1.jpg" <!-- If this was not specified, it would display the first avaliable frame -->
-			controls			 <!-- This enables controls -->
+			poster="poster1.jpg"
+			controls 			 <!-- This enables controls --> 
 			source src="video1.mp4" 
 			type="video/mp4">
 		</video>
@@ -43,6 +43,7 @@
 		-->
 		<br>
 		
+		<p>A canvas with som drawing:</p>
 		<canvas id="myCanvas">
 		</canvas>
 		
@@ -50,11 +51,13 @@
 	
 	<script>
 
-		//Draw a diagonal line:
+		//Draw some lines:
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
 		ctx.moveTo(0,0);
 		ctx.lineTo(400,200);
+		ctx.lineTo(0,200);
+		ctx.lineTo(400,0);
 		
 		//Draw a circle:
 		//ctx.arc(95,50,40,0,2*Math.PI);
