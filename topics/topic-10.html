@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5 Tags - Video, Audio, Canvas, etc.</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>Topic 10: HTML5 Tags - Video, Audio, Canvas, etc.</h1>
+	<div>
+		<p></p>
+		<p>Video tag with built-in controls:</p>
+		<video id=video1 
+			width="640" height="480" 
+			poster="poster1.jpg" <!-- If this was not specified, it would display the first avaliable frame -->
+			controls			 <!-- This enables controls -->
+			source src="video1.mp4" 
+			type="video/mp4">
+		</video>
+		<!-- Other attributes for video:
+			 autoplay
+			 buffered - An attribute you can read to determine which time ranges of the media have been buffered.
+			 loop 
+			 muted 
+			 preload - Tells the browser what data to preload or not (none, matadata, auto)
+			 
+			 Supported formats: mp4, webm, ogg
+		-->
+		<br>
+		
+		<p>Audio tag with built-in controls:</p>
+		<audio 
+			src="audio1.mp3" 
+			controls> <!-- Without controls and with autoplay, the audio would play in the background -->
+		</audio>
+		<!-- Other attributes for audio:
+			 autoplay
+			 buffered
+			 loop 
+			 muted 
+			 preload
+			 
+			 Supported forats: mp3, wav, ogg
+		-->
+		<br>
+		
+		<canvas id="myCanvas">
+		</canvas>
+		
+	</div>
+	
+	<script>
+
+		//Draw a diagonal line:
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.moveTo(0,0);
+		ctx.lineTo(400,200);
+		
+		//Draw a circle:
+		//ctx.arc(95,50,40,0,2*Math.PI);
+		
+		//Draw test:
+		//ctx.font = "45px Arial";
+		//ctx.fillText("Canvas text",10,50);
+		
+		ctx.stroke();
+	
+	</script>
+</body>
+</html>
