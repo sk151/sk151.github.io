@@ -22,7 +22,7 @@
 			 buffered - An attribute you can read to determine which time ranges of the media have been buffered.
 			 loop 
 			 muted 
-			 preload - Tells the browser what data to preload or not (none, matadata, auto)
+			 preload - Tells the browser what data to preload or not (none, metadata, auto)
 			 
 			 Supported formats: mp4, webm, ogg
 		-->
@@ -40,7 +40,7 @@
 			 muted 
 			 preload
 			 
-			 Supported forats: mp3, wav, ogg
+			 Supported formats: mp3, wav, ogg
 		-->
 		<br>
 		
@@ -61,11 +61,11 @@
 		ctx.lineTo(400,0);
 		
 		//Draw a circle:
-		//ctx.arc(95,50,40,0,2*Math.PI);
+		ctx.arc(95,50,40,0,2*Math.PI);
 		
 		//Draw test:
-		//ctx.font = "45px Arial";
-		//ctx.fillText("Canvas text",10,50);
+		ctx.font = "45px Arial";
+		ctx.fillText("Canvas text",10,50);
 		
 		ctx.stroke();
 	

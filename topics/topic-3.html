@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON2 Example using parse and stringify</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+
+    <script>
+		// Creating a JSON string:
+        var myJSONstring ='{ "Star Wars movies" : [' +
+			'{ "title":"Star Wars" , "year":"1977" },' +
+			'{ "title":"The Empire Strikes Back" , "year":"1980" },' +
+			'{ "title":"Return of the Jedi" , "year":"1983" },' +
+			'{ "title":"The Phantom Menace" , "year":"1999" },' +
+			'{ "title":"Attack of the Clones" , "year":"2003" },' +
+			'{ "title":"Revenge of the Sith" , "year":"2005" },' +
+			'{ "title":"The Force Awakens" , "year":"2015" },' +
+			'{ "title":"Rogue One" , "year":"2016" },' +
+			'{ "title":"The Last Jedi" , "year":"2017" }]}';
+					
+		// Using 'parse' method:
+        var parsedJSON = JSON.parse(myJSONstring);
+		for (var i = 0; i < parsedJSON.counters.length; i++) {
+			var counter = parsedJSON.counters[i];
+			console.log(counter.counter_name);
+		}
+		
+		// Using 'stringify' method:
+        var movie = new Object();
+        movie.title = "Star Wars";
+        movie.year = "1977";
+        var myarray = new Array();
+        myarray[0] = "title";
+        myarray[1] = "year";
+        var newJSONstring = JSON.stringify(movie, myarray, "\t");
+        document.write(newJSONstring);
+    </script>
+    </body>
+</html>

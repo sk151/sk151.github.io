@@ -4,22 +4,44 @@
 	<title>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</title>
 	<link rel="stylesheet" href="style.css">
 	<script>
+	// -------------- Object creation -------------------
+	// Using Object Initializer to create an object and its properties:
+	var pc1 = { processor_model: "i7",
+				RAM_GB:	16,
+				graphics_model: "GTX1080",
+				HDD_TB: 2 };
+				
+	// Using the object.create method that inherits pc1:
+	var pc2 = Object.create(pc1);
+	pc2.processor_model = "i386";
+	pc2.RAM_GB = 0.00005;
+	pc2.graphics.model = "MDA";
+	pc2.HDD_TB = 0.000001;
 	
-	 
+	// Using Constructor Function:
+	function pc3(processor_cores, processor_MHz, HDD_TB, HDD_rpm, case_color) {
+		this.processor_cores = processor_cores;
+		this.processor_MHz = processor_MHz;
+		this.HDD_TB = HDD_TB;
+		this.HDD_rpm = HDD_rpm;
+	}
+	
+	// Creating objects of pc3 type and sending its peoperties as parameters:
+	var mypc1 = new pc3(4, 3.5, 1, 7200, "green");
+	var mypc2 = new pc3(2, 3.1, 0.5, 5400, "white");
+	var mypc3 = new pc3(8, 4.2, 2, 7200, "blue");
+	
+	// Creating an 'laptop' object that inherits pc1 and has additional properties:
+	function laptop() {
+		pc3.call(this);
+		this.screen_size = 15;
+	};
 	</script>
 </head>
 <body>
 	<h1>Topic 2: Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
 	<div>
-		<p>*Work in progress*</p>
-		<p>This is an example of</p>
-		<input type="button" value="Print the arrays" onclick="printArrays(my_array, my_associative_array)"/>
-		<p id="output1"></p>
-		<p id="output2"></p>
-		<p id="output3"></p>
-		<p id="output4"></p>
-		<p id="output5"></p>
-		<p id="output6"></p>
+		<p>See page source for commented code.</p>
 	</div>
 </body>
 </html>
