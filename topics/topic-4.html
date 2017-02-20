@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Storage API example</title>
+  </head>
+  <body>
+  <div class="wrapper">
+    <h1>Web storage</h1>
+	<p> </p>
+    <form>
+      <div>
+		<p>This page saves the user-selected color in local storage. If you reopen your browser, the color will be saved.</p>
+        <p>See page source for comented code.</p>
+		<label for="bgcolor">Choose background color:</label>
+	    <input class="color" id="bgcolor" value="FF0000" autocomplete="off">
+      </div>
+	  <p>Some hex codes for colors:</p>
+	  <p>White #FFFFFF</p>
+	  <p>Black #000000</p>
+	  <p>Blue  #0000FF</p>
+	  <p>Green #008000</p>
+    </form>
+  </div>
+  </body>
+  <script>
+	var htmlElem = document.querySelector('html');
+	var pElem = document.querySelector('p');
+	var bgcolorForm = document.getElementById('bgcolor');
+	
+	if(!localStorage.getItem('bgcolor')) {
+		populateStorage();
+	} else {
+		setStyles();
+	}
+	
+	// Saving the color in local storage:
+	function populateStorage() {
+		localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
+		setStyles();
+	}
+
+	// Loading the color from local storage:
+	function setStyles() {
+		var currentColor = localStorage.getItem('bgcolor');
+		document.getElementById('bgcolor').value = currentColor;
+		htmlElem.style.backgroundColor = '#' + currentColor;
+	}
+	
+	bgcolorForm.onchange = populateStorage;
+  </script>
+</html>
+
+
+
+
