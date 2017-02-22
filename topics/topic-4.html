@@ -34,13 +34,13 @@
 		setStyles();
 	}
 	
-	// Saving the color in local storage:
+	// Storing the color in local storage:
 	function populateStorage() {
 		localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
 		setStyles();
 	}
 
-	// Loading the color from local storage:
+	// Retrieving the color from local storage:
 	function setStyles() {
 		var currentColor = localStorage.getItem('bgcolor');
 		document.getElementById('bgcolor').value = currentColor;

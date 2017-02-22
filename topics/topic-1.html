@@ -12,32 +12,45 @@
 	my_associative_array["two"] = "Element 2";
 	my_associative_array["three"] = "Element 3";
 	
+	
 	// A function that takes two arrays as parameters and prints them in different ways:	
 	function printArrays(array1, array2) {
-	document.getElementById("output1").innerHTML = "Array:";	
-	document.getElementById("output2").innerHTML = my_array;	
-	document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
+		document.getElementById("output1").innerHTML = "Array:";	
+		document.getElementById("output2").innerHTML = array1;	
+		document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
 	
-	// Conditional statement that prints an element if it exists:	
-	if (my_associative_array["two"]) {
-		document.getElementById("output4").innerHTML = my_associative_array["two"];	
+		// Conditional statement that prints an element if it exists:	
+		if (my_associative_array["two"]) {
+		document.getElementById("output4").innerHTML = array2["two"];	
 		}
-		else {
+			else {
 			document.getElementById("output4").innerHTML = "No element under 'two'";
-		}
+			}
 		
-	// Printing elements of the second array in a loop:		
-	document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
-		for (i in my_associative_array) {
-			document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
-		};		
+		// Printing elements of the second array in a loop:		
+		document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
+			for (i in array2) {
+				document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
+			};
+			
+		var my_array1 = [1,2,3,4,5,6,7,8,9,10];
+		var my_array2;
+		var sum = my_array1[my_array1.length - 1];
+		document.getElementById("output7").innerHTML = sum;
+		var last_index;
+		//for (var i = 0; i < my_array1[my_array1.length - 1]; i++) {
+		while (i < my_array1.length) {
+			my_array2[i] = my_array1[i] + my_array1[my_array1.length - i];
+		}
+		document.getElementById("output8").innerHTML = my_array2;
 	}
+	
+	
 	</script>
 </head>
 <body>
 	<h1>Topic 1: Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
 	<div>
-		<p>*Work in progress*</p>
 		<p>This is an example of using associative and regular arrays, loops, functions and their parameters, conditional statements and loops.</p>
 		<p>See page source for commented code.</p>
 		<input type="button" value="Print the arrays" onclick="printArrays(my_array, my_associative_array)"/>
@@ -47,6 +60,8 @@
 		<p id="output4"></p>
 		<p id="output5"></p>
 		<p id="output6"></p>
+		<p id="output7"></p>
+		<p id="output8"></p>
 	</div>
 </body>
 </html>
