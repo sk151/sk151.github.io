@@ -4,23 +4,20 @@
         <title>JSON Parse, Stringify</title>
 		<script>
 		// Creating a JSON string:
-        var myJSONstring ='{ "Star Wars movies" : [' +
-			'{ "title":"Star Wars" , "year":"1977" },' +
-			'{ "title":"The Empire Strikes Back" , "year":"1980" },' +
-			'{ "title":"Return of the Jedi" , "year":"1983" },' +
-			'{ "title":"The Phantom Menace" , "year":"1999" },' +
-			'{ "title":"Attack of the Clones" , "year":"2003" },' +
-			'{ "title":"Revenge of the Sith" , "year":"2005" },' +
-			'{ "title":"The Force Awakens" , "year":"2015" },' +
-			'{ "title":"Rogue One" , "year":"2016" },' +
-			'{ "title":"The Last Jedi" , "year":"2017" }]}';
+        var myJSONstring = '{"Star Wars movies":[\
+				{"title":"Star Wars","year":1977},\
+				{"title":"The Empire Strikes Back","year":1980},\
+				{"title":"Return of the Jedi","year":1983},\
+				{"title":"The Phantom Menace","year":1999},\
+				{"title":"Attack of the Clones","year":2003},\
+				{"title":"Revenge of the Sith","year":2005},\
+				{"title":"The Force Awakens","year":2015},\
+				{"title":"Rogue One","year":2016},\
+				{"title":"The Last Jedi","year":2017}]\
+			}';
 					
 		// Using 'parse' method:
         var parsedJSON = JSON.parse(myJSONstring);
-		for (var i = 0; i < parsedJSON.counters.length; i++) {
-			var counter = parsedJSON.counters[i];
-			console.log(counter.counter_name);
-		}
 		
 		// Using 'stringify' method:
         var movie = new Object();
@@ -29,8 +26,15 @@
         var myarray = new Array();
         myarray[0] = "title";
         myarray[1] = "year";
-        var newJSONstring = JSON.stringify(movie, myarray, "\t");
-        document.write(newJSONstring);
+        var newJSONstring1 = JSON.stringify(movie, myarray, "\t");
+		var newJSONstring2 = JSON.stringify(parsedJSON);
+		
+		function printJSON() {
+			document.getElementById("output1").innerHTML = "1. Unparsed JSON string: " + myJSONstring;	
+			document.getElementById("output2").innerHTML = "2. The JSON string is parsed into an object (not much to see): " + parsedJSON;	
+			document.getElementById("output3").innerHTML = "3. Stringified JSON object from the previous step: " + newJSONstring2;
+			document.getElementById("output4").innerHTML = "4. New stringified JSON: " + newJSONstring1;
+		}
     </script>
     </head>
     <body>
@@ -38,6 +42,11 @@
 		<h1>Topic 3: JSON Parse, Stringify</h1>
 	<div>
 		<p>See page source for commented code.</p>
+		<input type="button" value="Do the JSON magic" onclick="printJSON()"/>
+		<p id="output1"></p>
+		<p id="output2"></p>
+		<p id="output3"></p>
+		<p id="output4"></p>
 	</div>
     
     </body>
