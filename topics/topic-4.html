@@ -11,7 +11,7 @@
     <form>
       <div>
 		<p>See page source for comented code.</p>
-		<p>This page saves a user-selected color and an image in local storage. If you reopen your browser, the color and the image will be saved.</p>
+		<p>This page saves a user-selected color local storage. If you reopen your browser, the color will be saved.</p>
 		<label for="bgcolor">Choose background color:</label>
 	    <input class="color" id="bgcolor" value="FFFFFF" autocomplete="off">
       </div>
@@ -21,21 +21,24 @@
 	  <p>Blue  #0000FF</p>
 	  <p>Green #008000</p>
     </form>
+	Username: <input type="text" id="username"><br>
+	Password:  <input type="password" id="password"><br>
+	<input type="button" value="Log in" onclick="checkCredentials()"/>
+	<p id="output1"></p>
   </div>
   </body>
   <script>
+	// Storing the color in local storage:
 	var htmlElem = document.querySelector('html');
-	var pElem = document.querySelector('p');
 	var bgcolorForm = document.getElementById('bgcolor');
 	
 	if(!localStorage.getItem('bgcolor')) {
-		populateStorage();
+		populateColorStorage();
 	} else {
 		setStyles();
 	}
 	
-	// Storing the color in local storage:
-	function populateStorage() {
+	function populateColorStorage() {
 		localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
 		setStyles();
 	}
@@ -47,7 +50,31 @@
 		htmlElem.style.backgroundColor = '#' + currentColor;
 	}
 	
-	bgcolorForm.onchange = populateStorage;
+	bgcolorForm.onchange = populateColorStorage;
+	
+	//----------------------------------------------------------------
+	
+	// Storing credentials in local storage:
+	function populateCredentialsStorage() {
+		localStorage.setItem('username', document.getElementById('username').value);
+		localStorage.setItem('password', document.getElementById('password').value);
+		document.getElementById("output1").innerHTML = "Welcome, " + document.getElementById('username').value;
+	}
+	
+	// Check if the user is logged in, log in if not:
+	function checkCredentials() {
+		var storedName = localStorage.getItem('username');
+		var storedPw = localStorage.getItem('password');
+
+		var username = document.getElementById('username');
+		var password = document.getElementById('password');
+
+		if(username.value == storedName && password.value == storedPw) {
+			document.getElementById("output1").innerHTML = "Welcome back, " + document.getElementById('username').value;
+		} else {
+			populateCredentialsStorage();
+    }
+}
   </script>
 </html>
 

@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+	
+	// Using getElementById to manipulate object properties:
+	function HulkMode(id) {
+		var element = document.getElementById(id);
+		document.getElementById(id).style.color="green";
+		document.getElementById(id).style.fontSize="xx-large";
+		document.getElementById(id).style.fontFamily="Impact,bold";
+		document.getElementById(id).textContent= "Arghh!";
+	}
+	
+	// Using cloneNode and appendChild to duplicate an object:
+	function duplicate(id) {
+		var element = document.getElementById(id)
+		duplicate = element.cloneNode(true);
+		document.getElementById(id).appendChild(duplicate);
+	}
+	
+	// Removing a child of an element:
+	function remove(id) {
+		var parent = document.getElementById("parentDiv");
+		var child = document.getElementById(id);
+		parent.removeChild(child);
+	}
+	
+	// Using addAbove:
+	function addBefore(id) {
+		var element = document.getElementById(id);
+		var newEl = document.createTextNode("Hello");
+		element.insertBefore(newEl, element.childNodes[0]);
+	}
+	</script>
+</head>
+<body>
+	<h1>Topic 5: DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h1>
+	<div id="parentDiv">
+		<p>See page source for commented code.</p>
+		<p>(Refresh the page to reset)</p>
+		<span id="output1" onclick="HulkMode('output1')">1. I will turn green and angry on click</span>
+		<p id="output2" onclick="duplicate('output2')">2. I will duplicate myself on click</p>
+		<p id="output3" onclick="remove('output3')">3. I will remove myelf on click.</p>
+		<p id="output4" onclick="addBefore('output4')">4. I will add an element before me.</p>
+		<p id="output5"></p>
+		<p id="output6"></p>
+		<p id="output7"></p>
+		<p id="output8"></p>
+	</div>
+</body>
+</html>
