@@ -3,8 +3,47 @@
 <html>
   <head>
     <title>Web Storage API example</title>
-	
-	<script>
+  </head>
+  <body>
+  <div class="wrapper">
+    <h1>Local storage API</h1>
+	<p> </p>
+    <form>
+      <div>
+		<p>See page source for comented code.</p>
+		<p><b>This saves a user-selected color local storage. If you reopen your browser, the color will be saved.</b></p>
+		<label for="bgcolor">Choose background color:</label>
+	    <input class="color" id="bgcolor" value="FFFFFF" autocomplete="off">
+      </div>
+	  <p>Some hex codes for colors:</p>
+	  <p>Red   #FF0000</p>
+	  <p>Black #000000</p>
+	  <p>Blue  #0000FF</p>
+	  <p>Green #008000</p>
+    </form>
+	<p><b>This form will remember the entered credentials in local storage:</b></p>
+	Username: <input type="text" id="username"><br>
+	Password:  <input type="password" id="password"><br>
+	<input type="button" value="Log in" onclick="checkCredentials()"/>
+	<p id="output1"></p>
+	<p><b>Saving  and loading JSON to and from local storage:</b></p>
+	<p>Here is the JSON we'll save:</br>
+	{"Star Wars movies":[</br>
+				{"title":"Star Wars","year":1977},</br>
+				{"title":"The Empire Strikes Back","year":1980},</br>
+				{"title":"Return of the Jedi","year":1983},</br>
+				{"title":"The Phantom Menace","year":1999},</br>
+				{"title":"Attack of the Clones","year":2003},</br>
+				{"title":"Revenge of the Sith","year":2005},</br>
+				{"title":"The Force Awakens","year":2015},</br>
+				{"title":"Rogue One","year":2016},</br>
+				{"title":"The Last Jedi","year":2017}]</br>
+			}';</p>
+	<input id="saveJSONbtn" type="button" value="Save and retrieve JSON" onclick="saveJSON()"/>
+	<p id="loadedJSONtxt"></p>
+  </div>
+  </body>
+  <script>
 	// Storing the color in local storage
 	var htmlElem = document.querySelector('html');
 	var bgcolorForm = document.getElementById('bgcolor');
@@ -78,47 +117,6 @@
 		document.getElementById("loadedJSONtxt").innerHTML = JSON.stringify(loadedJSON);
 	}
   </script>
-	
-  </head>
-  <body>
-  <div class="wrapper">
-    <h1>Local storage API</h1>
-	<p> </p>
-    <form>
-      <div>
-		<p>See page source for comented code.</p>
-		<p><b>This saves a user-selected color local storage. If you reopen your browser, the color will be saved.</b></p>
-		<label for="bgcolor">Choose background color:</label>
-	    <input class="color" id="bgcolor" value="FFFFFF" autocomplete="off">
-      </div>
-	  <p>Some hex codes for colors:</p>
-	  <p>Red   #FF0000</p>
-	  <p>Black #000000</p>
-	  <p>Blue  #0000FF</p>
-	  <p>Green #008000</p>
-    </form>
-	<p><b>This form will remember the entered credentials in local storage:</b></p>
-	Username: <input type="text" id="username"><br>
-	Password:  <input type="password" id="password"><br>
-	<input type="button" value="Log in" onclick="checkCredentials()"/>
-	<p id="output1"></p>
-	<p><b>Saving  and loading JSON to and from local storage:</b></p>
-	<p>Here is the JSON we'll save:</br>
-	{"Star Wars movies":[</br>
-				{"title":"Star Wars","year":1977},</br>
-				{"title":"The Empire Strikes Back","year":1980},</br>
-				{"title":"Return of the Jedi","year":1983},</br>
-				{"title":"The Phantom Menace","year":1999},</br>
-				{"title":"Attack of the Clones","year":2003},</br>
-				{"title":"Revenge of the Sith","year":2005},</br>
-				{"title":"The Force Awakens","year":2015},</br>
-				{"title":"Rogue One","year":2016},</br>
-				{"title":"The Last Jedi","year":2017}]</br>
-			}';</p>
-	<input id="saveJSONbtn" type="button" value="Save and retrieve JSON" onclick="saveJSON()"/>
-	<p id="loadedJSONtxt"></p>
-  </div>
-  </body>
 </html>
 
 

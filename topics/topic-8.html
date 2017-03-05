@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using XMLHTTPRequest to Consume a JSON Web Service</title>
+	<link rel="stylesheet" href="../style.css">
+	
+</head>
+<body>
+	<h1>Topic 8: Using XMLHTTPRequest to Consume a JSON Web Service</h1>
+	<div>
+		<p>This site loads and parses a JSON file with details for a movie series using XMLHTTPRequest.</p>
+		<p>See page source for commented code.</p>
+		<label>Select a movie series name to load: </label>
+		<br><br>
+		<select id="movieSelect" onchange="loadJSON()">
+			<option>Star Wars</option>
+			<option>Indiana Jones</option>
+			<option>Lord of The Rings</option>
+			<option>Harrry Potter</option>
+		</select>
+		<br><br>
+		
+		<p id="output1"></p>
+		<p id="output2"></p>
+		<p id="output3"></p>
+		<p id="output4"></p>
+		<p id="output5"></p>
+		<p id="output6"></p>
+		<p id="output7"></p>
+		<p id="output8"></p>
+	</div>
+</body>
+<script>
+	
+	function loadJSON()
+		{
+			var request = new XMLHttpRequest();
+			request.open("GET", 'http://sk151.guthub.io/JSON/' + document.getElementById('movieSelect').value, true);
+
+			request.onreadystatechange = function () {
+				if(request.readyState === 4 || request.readyState === XMLHttpRequest.DONE) {
+					if(request.status === 200 || request.status == 0) {
+						moviesJSON = request.responseText;
+						movies = JSON.parse(moviesJSON);
+						document.getElementById("output1").innerHTML = "Here is the parsed requested JSON:" + movies;
+					}
+					else {
+						document.getElementById("output1").innerHTML = "Request failed.";
+					}
+				}
+			}
+		};
+
+	
+	/*
+	// Creating a regular and an associative array:
+	var my_array = ["1","2","3","banana"];
+	var my_associative_array = new Array();
+	my_associative_array["one"] = "Element 1";
+	my_associative_array["two"] = "Element 2";
+	my_associative_array["three"] = "Element 3";
+	
+	
+	// A function that takes two arrays as parameters and prints them in different ways:	
+	function printArrays(array1, array2) {
+		document.getElementById("output1").innerHTML = "Array:";	
+		document.getElementById("output2").innerHTML = array1;	
+		document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
+	
+		// Conditional statement that prints an element if it exists:	
+		if (my_associative_array["two"]) {
+		document.getElementById("output4").innerHTML = array2["two"];	
+		}
+			else {
+			document.getElementById("output4").innerHTML = "No element under 'two'";
+			}
+		
+		// Printing elements of the second array in a loop:		
+		document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
+			for (i in array2) {
+				document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
+			};
+			
+		var my_array1 = [1,2,3,4,5,6,7,8,9,10];
+		var my_array2;
+		var sum = my_array1[my_array1.length - 1];
+		document.getElementById("output7").innerHTML = sum;
+		var last_index;
+		//for (var i = 0; i < my_array1[my_array1.length - 1]; i++) {
+		while (i < my_array1.length) {
+			my_array2[i] = my_array1[i] + my_array1[my_array1.length - i];
+		}
+		document.getElementById("output8").innerHTML = my_array2;
+	}
+	*/
+	
+	</script>
+</html>
