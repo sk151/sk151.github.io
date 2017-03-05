@@ -13,36 +13,33 @@
 		<label>Select a movie series name to load: </label>
 		<br><br>
 		<select id="movieSelect" onchange="loadJSON()">
-			<option value="Star%20Wars">Star Wars</option>
-			<option value="Indiana%20Jones">Indiana Jones</option>
-			<option value="Lord%20of%20the%20Rings">Lord of The Rings</option>
-			<option value="Harry%20Potter">Harrry Potter</option>
+			<option value="Star-Wars.txt">Star Wars</option>
+			<option value="Indiana-Jones.txt">Indiana Jones</option>
+			<option value="Lord-of-the-Rings.txt">Lord of The Rings</option>
+			<option value="Harry-Potter.txt">Harry Potter</option>
 		</select>
 		<br><br>
-		
 		<p id="output1"></p>
 		<p id="output2"></p>
-		<p id="output3"></p>
-		<p id="output4"></p>
-		<p id="output5"></p>
-		<p id="output6"></p>
-		<p id="output7"></p>
-		<p id="output8"></p>
 	</div>
 </body>
 <script>
-	
 	function loadJSON()
 		{
 			var request = new XMLHttpRequest();
-			request.open("GET", 'http://sk151.guthub.io/JSON/' + document.getElementById('movieSelect').value, true);
-
+			// Send a request based on what data the user wants
+			request.open("GET", document.getElementById("movieSelect").value, true);
+			request.send();
+			
+			// Once the reply comes, process and display the data
 			request.onreadystatechange = function () {
 				if(request.readyState === 4 || request.readyState === XMLHttpRequest.DONE) {
 					if(request.status === 200 || request.status == 0) {
-						moviesJSON = request.responseText;
-						movies = JSON.parse(moviesJSON);
-						document.getElementById("output1").innerHTML = "Here is the parsed requested JSON:" + movies;
+						// Prasing the incoming JSON data and displaying it to the user
+						var moviesJSON = JSON.parse(request.responseText);
+						var moviesStr = JSON.stringify(moviesJSON, undefined, '<br>');
+						document.getElementById("output1").innerHTML = "Here is the response text: " + request.responseText;
+						document.getElementById("output2").innerHTML = "Here is the parsed JSON: " + moviesStr;
 					}
 					else {
 						document.getElementById("output1").innerHTML = "Request failed.";
@@ -50,49 +47,5 @@
 				}
 			}
 		};
-
-	
-	/*
-	// Creating a regular and an associative array:
-	var my_array = ["1","2","3","banana"];
-	var my_associative_array = new Array();
-	my_associative_array["one"] = "Element 1";
-	my_associative_array["two"] = "Element 2";
-	my_associative_array["three"] = "Element 3";
-	
-	
-	// A function that takes two arrays as parameters and prints them in different ways:	
-	function printArrays(array1, array2) {
-		document.getElementById("output1").innerHTML = "Array:";	
-		document.getElementById("output2").innerHTML = array1;	
-		document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
-	
-		// Conditional statement that prints an element if it exists:	
-		if (my_associative_array["two"]) {
-		document.getElementById("output4").innerHTML = array2["two"];	
-		}
-			else {
-			document.getElementById("output4").innerHTML = "No element under 'two'";
-			}
-		
-		// Printing elements of the second array in a loop:		
-		document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
-			for (i in array2) {
-				document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
-			};
-			
-		var my_array1 = [1,2,3,4,5,6,7,8,9,10];
-		var my_array2;
-		var sum = my_array1[my_array1.length - 1];
-		document.getElementById("output7").innerHTML = sum;
-		var last_index;
-		//for (var i = 0; i < my_array1[my_array1.length - 1]; i++) {
-		while (i < my_array1.length) {
-			my_array2[i] = my_array1[i] + my_array1[my_array1.length - i];
-		}
-		document.getElementById("output8").innerHTML = my_array2;
-	}
-	*/
-	
 	</script>
 </html>
