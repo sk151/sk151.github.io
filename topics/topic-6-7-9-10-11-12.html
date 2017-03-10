@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Topics</title>
+	
+
+	<style type="text/css">
+	
+	.box {
+		margin: 30px;
+		height: 50px;
+		width: 50px;
+		background-color: blue;
+	}
+	.box.horizTranslate {
+		-webkit-transition: 3s;
+		-moz-transition: 3s;
+		-ms-transition: 3s;
+		-o-transition: 3s;
+		transition: 3s;
+		margin-left: 50% !important;
+	}
+	
+	</style>
+	<script>
+	var boxOne = document.getElementsByClassName('box')[0];
+
+	document.getElementsByClassName('toggleButton')[0].onclick = function() {
+		if(this.innerHTML === 'Play') 
+		{ 
+			this.innerHTML = 'Pause';
+			boxOne.classList.add('horizTranslate');
+		} else {
+			this.innerHTML = 'Play';
+			var computedStyle = window.getComputedStyle(boxOne),
+			marginLeft = computedStyle.getPropertyValue('margin-left');
+			boxOne.style.marginLeft = marginLeft;
+			boxOne.classList.remove('horizTranslate');    
+		}  
+	}
+	
+	
+	/*
+	// Creating a regular and an associative array:
+	var my_array = ["1","2","3","banana"];
+	var my_associative_array = new Array();
+	my_associative_array["one"] = "Element 1";
+	my_associative_array["two"] = "Element 2";
+	my_associative_array["three"] = "Element 3";
+	
+	
+	// A function that takes two arrays as parameters and prints them in different ways:	
+	function printArrays(array1, array2) {
+		document.getElementById("output1").innerHTML = "Array:";	
+		document.getElementById("output2").innerHTML = array1;	
+		document.getElementById("output3").innerHTML = "Associative array, element associated with 'two':";
+	
+		// Conditional statement that prints an element if it exists:	
+		if (my_associative_array["two"]) {
+		document.getElementById("output4").innerHTML = array2["two"];	
+		}
+			else {
+			document.getElementById("output4").innerHTML = "No element under 'two'";
+			}
+		
+		// Printing elements of the second array in a loop:		
+		document.getElementById("output5").innerHTML = "Associative array, printing in a loop:";
+			for (i in array2) {
+				document.getElementById("output6").innerHTML = document.getElementById("output6").innerHTML + " " + i;
+			};
+			
+		var my_array1 = [1,2,3,4,5,6,7,8,9,10];
+		var my_array2;
+		var sum = my_array1[my_array1.length - 1];
+		document.getElementById("output7").innerHTML = sum;
+		var last_index;
+		//for (var i = 0; i < my_array1[my_array1.length - 1]; i++) {
+		while (i < my_array1.length) {
+			my_array2[i] = my_array1[i] + my_array1[my_array1.length - i];
+		}
+		document.getElementById("output8").innerHTML = my_array2;
+	}
+	*/
+	
+	</script>
+</head>
+<body>
+	<h1>CSS Topics.</h1>
+	<div>
+		<p>See page source for commented code.</p>
+		
+		<div class='box'></div> 
+		<button class='toggleButton' value='play'>Play</button>
+		
+		<p id="output1"></p>
+		<p id="output2"></p>
+		<p id="output3"></p>
+		<p id="output4"></p>
+		<p id="output5"></p>
+		<p id="output6"></p>
+		<p id="output7"></p>
+		<p id="output8"></p>
+	</div>
+</body>
+</html>

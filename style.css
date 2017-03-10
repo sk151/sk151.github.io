@@ -1,31 +1,56 @@
-.h1 {
-	font-family: "Calibri";
+body {
+	background-color: #F9F9F9;
+}
+.header {
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+}
+.hr {
+	color: #88BBD6;
+	border-style: outset;
+	width: 95%;
 }
 .table {
 	display: table;
-	width: 100%;
-	font-family: "Calibri";
+	width: 90%;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+}
+.table_heading {
+	background-color: #88BBD6;
+	font-weight: bold;
+	color: #FFFFFF;
+	display: table-row;
+	padding: 0.5% 0.5% 0.5% 0.5%;
 }
 .row {
 	display: table-row;
+	height: 100%;
 }
-
 .cell {
-	border: 1px solid #999999;
 	display: table-cell;
-	padding: 3px 10px;	
+	padding: 0.5% 0.5% 0.5% 0.5%;
 }
-.table_heading {
-	background-color: #EEE;
-	font-weight: bold;
-	border: 1px solid #999999;
-	display: table-row;
-	padding: 3px 10px;	
+.cell-topic {
+	display: table-cell;
+	padding: 0.5% 0.5% 0.5% 0.5%;
+	-webkit-transition: background-color 1s;
 }
-.table_foot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
+/* Using transitions to turn topic titles blue on hover: */
+.cell-topic:hover {
+	background-color: #99D3DF;
+}
+.cell-fluency {
+	display: table-cell;
+	padding: 0.5% 0.5% 0.5% 0.5%;
+}
+.cell-date {
+	display: table-cell;
+	padding: 0.5% 0.5% 0.5% 0.5%;
+}
+.cell-comment {
+	display: table-cell;
+	padding: 0.5% 0.5% 0.5% 0.5%;
 }
 .table_body {
 	display: table-row-group;
