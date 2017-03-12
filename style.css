@@ -1,5 +1,7 @@
 body {
 	background-color: #F9F9F9;
+	font-family: 'Quicksand', sans-serif;
+	
 }
 .header {
 	font-family: 'Quicksand', sans-serif;
@@ -14,7 +16,7 @@ body {
 	display: table;
 	width: 90%;
 	font-family: 'Quicksand', sans-serif;
-	font-weight: 400;
+
 }
 .table_heading {
 	background-color: #88BBD6;
@@ -36,10 +38,12 @@ body {
 	padding: 0.5% 0.5% 0.5% 0.5%;
 	-webkit-transition: background-color 1s;
 }
-/* Using transitions to turn topic titles blue on hover: */
+/*-----------------------------------------------------------------------------*/
+/* Using transitions to highlight topic titles on hover: */
 .cell-topic:hover {
 	background-color: #99D3DF;
 }
+
 .cell-fluency {
 	display: table-cell;
 	padding: 0.5% 0.5% 0.5% 0.5%;
@@ -54,4 +58,58 @@ body {
 }
 .table_body {
 	display: table-row-group;
+}
+/*-----------------------------------------------------------------------------*/
+/* Using animations to add effects to buttons on hover: */
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+  }
+}
+.button {
+
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 12px;
+	background: #609BB8;
+	padding: 5px 10px 5px 10px;
+}
+
+.button:hover {
+	animation-duration: 1.5s;
+	animation-name: bounce;
+	animation-iteration-count: infinite;
+}
+/*-----------------------------------------------------------------------------*/
+/* A different animation for the Clear button: */
+@keyframes fade {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.buttonClear {
+
+	border-radius: 5px;
+	color: #ffffff;
+	font-size: 12px;
+	background: #609BB8;
+	padding: 5px 10px 5px 10px;
+}
+
+.buttonClear:hover {
+	animation-duration: 1.5s;
+	animation-name: fade;
+	animation-iteration-count: infinite;
 }

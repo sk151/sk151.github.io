@@ -5,24 +5,12 @@
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
 </head>
-<style>
 
 
-
-</style>
-<script>
-/* color scheme:
-	light blue (ice)		#99D3DF
-	blue	(fresh water)	#88BBD6
-	grey	(plaster)		#CDCDCD
-	light grey (linen)		#E9E9E9
-	*/
-</script>
-
-<body>
+<body id="body">
 	<h1 class="header">Sergei's CIT 261 Repository</h1>
 	
-	<div class="table">
+	<div class="table" id="table">
 	<div class="table_body">
 		<div class="table_heading">
 			<div class="cell">Topic</div>
@@ -63,14 +51,14 @@
 		<div class="row">
 			<div class="cell-topic">6. Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</div>
 			<div class="cell-fluency">Strongly Disagree</div>
-			<div class="cell-date"></div>
-			<div class="cell-comment"></div>
+			<div class="cell-date">3/11/2017</div>
+			<div class="cell-comment">Added functionality related to the topic to the home page.</div>
 		</div>
 		<div class="row">
 			<div class="cell-topic">7. Manipulating CSS Class Properties Using JavaScript</div>
 			<div class="cell-fluency">Strongly Disagree</div>
-			<div class="cell-date"></div>
-			<div class="cell-comment"></div>
+			<div class="cell-date">3/11/2017</div>
+			<div class="cell-comment">Added functionality related to the topic to the home page.</div>
 		</div>
 		<div class="row">
 			<div class="cell-topic"><a href="topics/topic-8.html">8. Using XMLHTTPRequest to Consume a JSON Web Service</a></div>
@@ -93,20 +81,20 @@
 		<div class="row">
 			<div class="cell-topic">11. Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries</div>
 			<div class="cell-fluency">Strongly Disagree</div>
-			<div class="cell-date"></div>
-			<div class="cell-comment"></div>
+			<div class="cell-date">3/12/2017</div>
+			<div class="cell-comment">Added functionality related to the topic to the home page.</div>
 		</div>
 		<div class="row">
 			<div class="cell-topic">12. Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries</div>
 			<div class="cell-fluency">Strongly Disagree</div>
-			<div class="cell-date"></div>
-			<div class="cell-comment"></div>
+			<div class="cell-date">3/12/2017</div>
+			<div class="cell-comment">Added functionality related to the topic to the home page.</div>
 		</div>
 		<div class="row">
 			<div class="cell-topic">13. Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</div>
 			<div class="cell-fluency">Strongly Disagree</div>
-			<div class="cell-date"></div>
-			<div class="cell-comment"></div>
+			<div class="cell-date">3/12/2017</div>
+			<div class="cell-comment">Added functionality related to the topic to the home page.</div>
 		</div>
 		<div class="row">
 			<div class="cell-topic">14. Mobile Single Page App Design and Implementation</div>
@@ -121,6 +109,134 @@
 			<div class="cell-comment"></div>
 		</div>
 	</div>
-</div>
+</div><br><br>
+<p>See page source for JS that controls CSS.</p><br>
+<p>These controls use JavaScript methods to manipulate CSS of this page.</p>
+
+		<label for="bgColor">Set background color:</label>
+	    <input class="bgColor" id="bgColor" value="#F9F9F9" autocomplete="off"><br>
+		<label for="fontColor">Set font color:</label>
+	    <input class="fontColor" id="fontColor" value="#000000" autocomplete="off"><br>
+		<label for="fontSize">Set font size:</label>
+	    <input class="fontSize" id="fontSize" value="12px" autocomplete="off"><br>
+		<label for="fontWeight">Set font weight:</label>
+	    <input class="fontWeight" id="fontWeight" value="400" autocomplete="off"><br>
+<br><br>
+<p>These buttons highlight corresponding fluencies using JS, transitions and animations.</p>
+<a href="style.css">View CSS style sheet</a><br>
+<button class="button" onclick="highlightSA()">Strongly Agree</button><br>
+<button class="button" onclick="highlightA()">Agree</button><br>
+<button class="button" onclick="highlightD()">Disagree</button><br>
+<button class="button" onclick="highlightSD()">Strongly Disagree</button><br>
+<button class="buttonClear" onclick="unhighlight()">Clear</button>		
+	
+
+
+<script>
+/* color scheme:
+	light blue (ice)		#99D3DF
+	blue	(fresh water)	#88BBD6
+	grey	(plaster)		#CDCDCD
+	light grey (linen)		#E9E9E9
+	
+	str agree (green)		#9ADF9A
+	agree (light green)		#DFDF9A
+	disagree (yellow)		#DFCE9A
+	str disagree(red)		#DF9A9A
+*/
+	
+//-------------------------------------------------------------------------------------
+//	7. Manipulating CSS Class Properties Using JavaScript
+
+	var body = document.getElementById('body');
+	var bgColor = document.getElementById('bgColor');
+	var fontColor = document.getElementById('fontColor');
+	var fontSize = document.getElementById('fontSize');
+	var fontWeight = document.getElementById('fontWeight');
+	
+// These functions change CSS based on user input
+	function setbgColor() {
+		body.style.backgroundColor = document.getElementById('bgColor').value;
+	}
+	
+	function setfontColor() {
+		body.style.color = document.getElementById('fontColor').value;
+	}
+	
+	function setfontSize() {
+		body.style.fontSize = document.getElementById('fontSize').value;
+	}
+	
+	function setfontWeight() {
+		body.style.fontWeight = document.getElementById('fontWeight').value;
+	}
+// Run the above functions once the user customizes CSS
+	bgColor.onchange = setbgColor;
+	fontColor.onchange = setfontColor;
+	fontSize.onchange = setfontSize;
+	fontWeight.onchange = setfontWeight;
+	
+//-------------------------------------------------------------------------------------
+//	6. Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript
+
+	var table = document.getElementById('table');
+	
+	function highlightSA() {
+//Scroll back to see the whole table
+		table.scrollIntoView({behavior:"smooth"});
+//Go through all the cells and highlight only ones with 'Strongly Agree'
+		var cells = document.getElementsByClassName('cell-fluency');
+		for (var i in cells) {
+			if (cells[i].innerHTML == 'Strongly Agree') {
+//Set CSS transition and color
+				cells[i].style.transition = 'background 1.0s linear 1s';
+				cells[i].style.background = '#9ADF9A';
+			}
+		}
+	}
+	
+	function highlightA() {
+		table.scrollIntoView({behavior:"smooth"});
+		var cells = document.getElementsByClassName('cell-fluency');
+		for (var i in cells) {
+			if (cells[i].innerHTML == 'Agree') {
+				cells[i].style.transition = 'background 1.0s linear 1s';
+				cells[i].style.background = '#DFDF9A';
+			}
+		}
+	}
+	
+	function highlightD() {
+		table.scrollIntoView({behavior:"smooth"});
+		var cells = document.getElementsByClassName('cell-fluency');
+		for (var i in cells) {
+			if (cells[i].innerHTML == 'Disagree') {
+				cells[i].style.transition = 'background 1.0s linear 1s';
+				cells[i].style.background = '#DFCE9A';
+			}
+		}
+	}
+	
+	function highlightSD() {
+		table.scrollIntoView({behavior:"smooth"});
+		var cells = document.getElementsByClassName('cell-fluency');
+		for (var i in cells) {
+			if (cells[i].innerHTML == 'Strongly Disagree') {
+				cells[i].style.transition = 'background 1.0s linear 1s';
+				cells[i].style.background = '#DF9A9A';
+			}
+		}
+	}
+	
+//Clear backgrounds of fluency cells
+	function unhighlight() {
+		var cells = document.getElementsByClassName('cell-fluency');
+		for (var i in cells) {
+				cells[i].style.transition = 'background 1.0s';
+				cells[i].style.background = 'transparent';
+		}
+	}
+</script>	
 </body>
+
 </html>
