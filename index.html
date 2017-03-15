@@ -240,12 +240,13 @@
 //-------------------------------------------------------------------------------------
 //	Standard JavaScript Events Including those for Mobile Devices
 	
-	screen.addEventListener("orientationchange", function () {
+	function zoomInPortrait () {
 		if (window.innerWidth < window.innerHeight) {
 		document.body.style.zoom = 2.1;
 		}
-	});
+	}
+	
+	screen.addEventListener("orientationchange", zoomInPortrait);
 </script>	
 </body>
-
 </html>
